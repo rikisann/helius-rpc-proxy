@@ -36,11 +36,14 @@ export default {
 			});
 		}
 
-		// const upgradeHeader = request.headers.get('Upgrade')
+		const upgradeHeader = request.headers.get('Upgrade');
 
-		// if (upgradeHeader || upgradeHeader === 'websocket') {
-		// 	return await fetch(`https://https://solana-mainnet.g.alchemy.com/v2/${env.ALCHEMY_API_KEY}`, request)
-		// }
+		if (upgradeHeader || upgradeHeader === 'websocket') {
+			return await fetch(
+				`https://https://solana-mainnet.g.alchemy.com/v2/${env.ALCHEMY_API_KEY}`,
+				request
+			);
+		}
 
 		const { pathname } = new URL(request.url);
 		const payload = await request.text();
